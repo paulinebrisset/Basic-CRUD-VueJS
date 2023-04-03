@@ -35,9 +35,9 @@ const showForm = ref(false);
 </script>
 <template>
     <div class="createSection">
-        <button class="createButton" @click="showForm = true">
+        <span class="createButton" @click="showForm = true">
             <a class="open" href="#"></a>
-        </button>
+        </span>
     </div>
     <div v-if="cardsList" class="allCards">
         <div>
@@ -72,13 +72,13 @@ div>ol {
 
 /* Create button*/
 .open {
-    background-color: #6de510;
+    background-color: #92df57;
     position: absolute;
-    right: 12px;
-    top: 12px;
+    right: 0px;
+    top: 0px;
     width: 22px;
     height: 22px;
-    opacity: 0.8;
+    opacity: 0.7;
     cursor: pointer;
 }
 

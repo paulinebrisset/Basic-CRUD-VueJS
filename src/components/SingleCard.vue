@@ -8,19 +8,19 @@
                 <div class="myline">
                     <span v-for="tag in card.Tags" :class="getTagClass(tag)">{{ tag }}</span>
                 </div>
-                <button class="deletebtn" @click="deleteCard();">
+                <span class="deletebtn actionbtn" @click="deleteCard();">
                     <a class="close" href="#"></a>
-                </button>
-                <button class="updatebbtn" @click="updateCard">
+                </span>
+                <span class="updatebbtn actionbtn" @click="updateCard">
                     <a class="updatebtn" href="#"></a>
-                </button>
+                </span>
             </li>
         </div>
     </div>
 </template>
     
 <script setup>
-import { defineProps, ref, createApp } from 'vue';
+import { defineProps, createApp } from 'vue';
 import firebase from '../plugin/firebase';
 import Modal from './Modal.vue';
 
@@ -50,7 +50,6 @@ function updateCard(self) {
     app.mount('#modal')
 }
 
-//TODO voir comment rafraîchir la page automatiquement
 function deleteCard() {
     firebase.deleteCard(firebase.db, props.card.id).then(() => {
         location.reload();
@@ -61,10 +60,10 @@ function deleteCard() {
     
 <style scoped>
 .myCard {
-    background: linear-gradient(to bottom right, #fcfcfc, #95a6d888);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 5px;
+    background: linear-gradient(to bottom right, #fffffF, #e0c6bb97);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 10px;
     max-width: 30vw;
 }
 
@@ -118,8 +117,10 @@ function deleteCard() {
 
 .updatebtn {
     position: absolute;
+    top: -24px;
+    right: 27px;
     height: 22px;
-    line-height: 22px;
+    line-height: 20px;
     width: 22px;
     font-size: 2em;
     font-weight: bold;
@@ -128,6 +129,7 @@ function deleteCard() {
     color: white;
     text-align: center;
     cursor: pointer;
+    opacity: 0.6;
 }
 
 /* DELETE */
@@ -137,19 +139,23 @@ function deleteCard() {
     bottom: 10px;
     right: 3px;
 } */
+.actionbtn {
+    margin: 50px;
+}
 
 .close {
     background-color: #ff6347;
     position: absolute;
-    right: 12px;
-    top: 12px;
+    right: -6px;
+    top: -25px;
     width: 22px;
     height: 22px;
-    opacity: 0.3;
+    opacity: 0.6;
     cursor: pointer;
 }
 
-.close:hover {
+.close:hover,
+.updatebtn:hover {
     opacity: 1;
 }
 

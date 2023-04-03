@@ -1,7 +1,9 @@
 <template>
   <div class="background-image">
-    <img id="logo" alt="Logo" src="./assets/logo.png">
-    <AllCards msg="Welcome to Your Vue.js App" />
+    <div class="bodyimage">
+      <img id="logo" alt="Logo" src="./assets/logo.png">
+      <AllCards msg="Welcome to Your Vue.js App" />
+    </div>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ export default {
   list-style-type: none;
 }
 
+
 #app {
 
   -webkit-font-smoothing: antialiased;
@@ -41,11 +44,11 @@ export default {
 
 @keyframes mymove {
   0% {
-    bottom: 0px;
+    bottom: -60px;
   }
 
   25% {
-    bottom: 30px;
+    bottom: -25px;
   }
 
   50% {
@@ -53,12 +56,21 @@ export default {
   }
 
   75% {
-    bottom: 100px;
+    bottom: -30px;
   }
 
   100% {
-    bottom: 0px;
+    bottom: -60px;
   }
+}
+
+.background-image,
+.bodyimage {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+
 }
 
 .background-image {
@@ -66,7 +78,9 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
-  height: 100vh;
+}
+
+.bodyimage {
+  background-color: #233a3d33;
 }
 </style>

@@ -82,16 +82,16 @@ export default {
         <div v-if="show" class="modal-mask">
             <div class="modal-container">
                 <div class="modal-header">
-                    <input v-model="titleRef">
+                    <input id="titleinput" v-model="titleRef">
                     <div class="modal-body">
-                        <input v-model="contentRef">
+                        <textarea type="text" id="contentinput" v-model="contentRef" />
                         <select v-model="tagsRef" multiple>
                             <option value="Important">Important</option>
                             <option value="Warning">Warning</option>
                             <option value="Pour lundi">Pour lundi</option>
                             <option value="Idées sorties">Idées sorties</option>
                         </select>
-                        <input v-model="newTagRef">
+                        <input id="taginput" v-model="newTagRef">
                     </div>
                     <div class="modal-footer">
                         <slot name="footer">
@@ -152,10 +152,18 @@ li {
     min-height: 60px;
 }
 
-.modal-container input {
+.modal-container input,
+.modal-container select,
+.modal-container textarea {
     font-family: inherit;
-    font-size: 1.3rem;
+    border: 0.7px solid grey;
     border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 10px;
+    min-width: 250px;
+    width: 270px;
+    margin-top: 4px;
 }
 
 .modal-body select {
@@ -188,5 +196,14 @@ li {
 .modal-leave-to .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+#contentinput {
+    height: 150px;
+}
+
+#taginput,
+#titleinput {
+    height: 50px;
 }
 </style>
